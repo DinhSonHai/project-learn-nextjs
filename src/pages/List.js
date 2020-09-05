@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function List({ ownersList }) {
-    const [owners, setOwners] = useState([]);
+    //const [owners, setOwners] = useState([]);
     // useEffect(() => {
     //     async function loadData() {
     //         const respone = await fetch('http://localhost:8080/products');
@@ -23,7 +23,7 @@ export default function List({ ownersList }) {
     );
 }
 
-List.getInitialProps = async () => {
+List.getInitialProps = async (ctx) => {
     const respone = await fetch('http://localhost:8080/products');
     const ownersList = await respone.json();
     return { ownersList }; 
