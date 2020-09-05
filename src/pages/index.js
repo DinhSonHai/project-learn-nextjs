@@ -1,5 +1,5 @@
-export default function() {
+export default function Index() {
     return (
-        <div>Hello NextJS</div>
+        <h1>Hello NextJS</h1>
     );
 }
