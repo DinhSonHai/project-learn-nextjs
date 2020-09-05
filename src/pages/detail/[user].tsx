@@ -1,20 +1,24 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { IUser } from '../../../api/IUser';
+
+export interface UserProps {
+    userList: IUser[] | undefined;
+}
 
 export default function User() {
-    const [owners, setOwners] = useState([]);
+    const [user, setUsers] = useState([]);
     const router = useRouter();
     useEffect(() => {
         async function loadData() {
             const respone = await fetch(`http://localhost:8080/products?name=${router.query.user}`);
-            const ownersList = await respone.json();
-            setOwners(ownersList);
+            const userList: IUser[] | undefined = await respone.json();
+            setUsers(userList);
         }
         loadData();
     }, [])
-    console.log(router.req);
     return (
-        <pre>{JSON.stringify(owners, null, 4)}</pre>
+        <pre>{JSON.stringify(user, null, 4)}</pre>
     )
 }
 
