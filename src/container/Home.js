@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <div>
             <h1>Hello NextJS</h1>
-            <Link href="/sonhai">Detail Page</Link>
+            <Link href="/List">List User Page</Link>
         </div>
     );
 }
