@@ -12,7 +12,7 @@ export default function User() {
     useEffect(() => {
         async function loadData() {
             const respone = await fetch(`http://localhost:8080/products?name=${router.query.user}`);
-            const userList: IUser[] | undefined = await respone.json();
+            const userList = await respone.json();
             setUsers(userList);
         }
         loadData();
